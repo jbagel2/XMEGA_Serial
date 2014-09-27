@@ -22,3 +22,11 @@ and
 sendString(*uint8_t[]); (String... obviously..)
 
 
+Feel free to send me a message if you need help, or would like a few more BAUD speeds added..
+This will continue to be a work in progress.
+
+TODO:
+
+- Add option for which USARTX to set up
+- possibly.... eventually, add on the fly value calculation 
+(seems to be a waist of memory and clk_cycles though)
