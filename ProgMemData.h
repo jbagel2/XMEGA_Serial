@@ -1,8 +1,12 @@
 /*
+* XMEGA_Serial_PROGMEM
  * ProgMemData.h
+ * 
+ * MIT LICENSE: Please be sure to leave the Author information and attribute the work publicly
+ * not asking much for a little recognition for time spent
  *
- * Created: 9/23/2014 7:11:32 PM
- *  Author: jpagel
+ * Created: 9/26/2014 7:11:32 PM
+ *  Author: Jacob Pagel
  */ 
 
 
