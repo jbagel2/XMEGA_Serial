@@ -13,8 +13,8 @@
 #include "ProgMemData.h"
 #include <stdint-gcc.h>
 
-void configureSerial2M();
-void configureSerial920K();
+//void configureSerial2M();
+//void configureSerial920K();
 void sendChar(char c);
 void sendString(char *text);
 char usart_receiveByte();
@@ -24,42 +24,42 @@ void SerialBegin(baud_t baud);
 
 
 
-
-void configureSerial2M()
-{
-	uint16_t bsel = 128;
-	//USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm;
-	USARTC0_BAUDCTRLB = USARTC0.BAUDCTRLB = 0| (bsel >> 8) | (-7 << USART_BSCALE0_bp);
-	//USARTC0_BAUDCTRLA = 3317; // 207
-	USARTC0_BAUDCTRLA = bsel;
-	
-	//Disable interrupts, just for safety
-	USARTC0_CTRLA = 0;
-	//8 data bits, no parity and 1 stop bit
-	USARTC0_CTRLC = USART_CHSIZE_8BIT_gc;
-	
-	//Enable receive and transmit
-	USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm | USART_CLK2X_bm;; //  Enable TX, RX, Enable 2X_CLK Mode
-	
-}
-
-void configureSerial920K()
-{
-	
-	uint16_t bsel = 150;
-	//USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm; //
-	USARTC0_BAUDCTRLB = USARTC0.BAUDCTRLB = 0| (bsel >> 8) | (-7 << USART_BSCALE0_bp);
-	USARTC0_BAUDCTRLA = bsel;
-	
-	//Disable interrupts, just for safety
-	USARTC0_CTRLA = 0;
-	//8 data bits, no parity and 1 stop bit
-	USARTC0_CTRLC = USART_CHSIZE_8BIT_gc;
-	
-	//Enable receive and transmit
-	USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm | ~USART_CLK2X_bm; // Enable TX, RX, Remove 2X_CLK Mode
-	
-}
+//
+//void configureSerial2M()
+//{
+	//uint16_t bsel = 128;
+	////USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm;
+	//USARTC0_BAUDCTRLB = USARTC0.BAUDCTRLB = 0| (bsel >> 8) | (-7 << USART_BSCALE0_bp);
+	////USARTC0_BAUDCTRLA = 3317; // 207
+	//USARTC0_BAUDCTRLA = bsel;
+	//
+	////Disable interrupts, just for safety
+	//USARTC0_CTRLA = 0;
+	////8 data bits, no parity and 1 stop bit
+	//USARTC0_CTRLC = USART_CHSIZE_8BIT_gc;
+	//
+	////Enable receive and transmit
+	//USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm | USART_CLK2X_bm;; //  Enable TX, RX, Enable 2X_CLK Mode
+	//
+//}
+//
+//void configureSerial920K()
+//{
+	//
+	//uint16_t bsel = 150;
+	////USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm; //
+	//USARTC0_BAUDCTRLB = USARTC0.BAUDCTRLB = 0| (bsel >> 8) | (-7 << USART_BSCALE0_bp);
+	//USARTC0_BAUDCTRLA = bsel;
+	//
+	////Disable interrupts, just for safety
+	//USARTC0_CTRLA = 0;
+	////8 data bits, no parity and 1 stop bit
+	//USARTC0_CTRLC = USART_CHSIZE_8BIT_gc;
+	//
+	////Enable receive and transmit
+	//USARTC0_CTRLB = USART_TXEN_bm | USART_RXEN_bm | ~USART_CLK2X_bm; // Enable TX, RX, Remove 2X_CLK Mode
+	//
+//}
 
 void sendChar(char c)
 {
